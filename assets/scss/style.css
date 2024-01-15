@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+#home {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 25px;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: center;
+  justify-content: space-around;
+}
+#home #form {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#home #choose {
+  border: 0px transparent;
+  background-color: #202B3B;
+  height: 25px;
+  padding: 5px;
+  color: white;
+  width: 225px;
+  border-radius: 10px;
+}
+#home #choose::-moz-placeholder {
+  color: white;
+}
+#home #choose::placeholder {
+  color: white;
+}
+#home #choose:focus {
+  color: white;
+}
+
+#submit {
+  border: 0px transparent;
+  cursor: pointer;
+  color: white;
+  background-color: #202B3B;
+  height: 35px;
+  width: 85px;
+  border-radius: 10px;
+  transition: 150ms;
+}
+#submit:hover {
+  background-color: #29374c;
+}
+
+main {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main #cityName {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  font-size: 36px;
+  margin-bottom: 0px;
+  font-family: "Nunito", sans-serif;
+}
+main #temperature {
+  text-align: center;
+  margin-top: 0px;
+  color: white;
+  font-size: 30px;
+  font-family: "Nunito", sans-serif;
+}
+main #descR {
+  margin-top: 0;
+  color: #9399A2;
+  font-family: "Nunito", sans-serif;
+}
+main #today {
+  width: 87%;
+  height: 200px;
+  background-color: #202B3B;
+  border-radius: 18px;
+}
+main #today #todays {
+  margin-left: 15px;
+  margin-top: 20px;
+  font-size: small;
+  color: #9399A2;
+  font-family: "Nunito", sans-serif;
+}
+main #today .forecastDay {
+  display: flex;
+  height: 200px;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+main #today .forecastDay #matin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  width: 30%;
+  border-right: #9399A2 1px solid;
+}
+main #today .forecastDay #midi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  width: 25%;
+}
+main #today .forecastDay #midi .imgToday {
+  width: 92%;
+  height: auto;
+}
+main #today .forecastDay #soir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  width: 30%;
+  border-left: #9399A2 1px solid;
+}
+main #today .forecastDay .hour {
+  margin: 0;
+  color: #9399A2;
+  margin-bottom: 3px;
+}
+main #today .forecastDay .imgToday {
+  width: 75%;
+  height: auto;
+}
+main #today .forecastDay .tempToday {
+  margin: 0;
+  color: #9399A2;
+}
+
+html {
+  background-color: #0B131E;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  margin: 0%;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */

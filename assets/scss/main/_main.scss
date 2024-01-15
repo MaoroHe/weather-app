@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+main {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    #cityName {
+        text-align: center;
+        margin-top: 20px;
+        color: white;
+        font-size: 36px;
+        margin-bottom: 0px;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    #temperature {
+        text-align: center;
+        margin-top: 0px;
+        color: white;
+        font-size: 30px;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    #descR {
+        margin-top: 0;
+        color: #9399A2;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    #today {
+        width: 87%;
+        height: 200px;
+        background-color: $secondary;
+        border-radius: 18px;
+
+        #todays {
+            margin-left: 15px;
+            margin-top: 20px;
+            font-size: small;
+            color: #9399A2;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .forecastDay {
+            display: flex;
+            height: 200px;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 20px;
+
+            #matin {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 120px;
+                width: 30%;
+                border-right: #9399A2 1px solid;
+            }
+
+            #midi {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 120px;
+                width: 25%;
+                .imgToday {
+                    width:92%;
+                    height: auto;
+                }
+            }
+
+            #soir {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 120px;
+                width: 30%;
+                border-left: #9399A2 1px solid;
+            }
+
+            .hour {
+                margin: 0;
+                color: #9399A2;
+                margin-bottom: 3px;
+            }
+
+            .imgToday {
+                width:75%;
+                height: auto;
+            }
+            
+            .tempToday {
+                margin: 0;
+                color: #9399A2;
+            }
+        }
+    }
+}

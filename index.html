@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/scss/style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/Weather-PNG.png">
+    <script type="module" src="./assets/js/script.js" defer></script>
+    <title>Weather App</title>
+</head>
+<body>
+    <header id="home">
+        <form id="form">
+            <input list="cities" type="text" placeholder="Choose your city" id="choose">
+            <datalist id="cities">
+                <option value="Charleroi"></option>
+                <option value="New York"></option>
+                <option value="Venice"></option>
+                <option value="Mexico"></option>
+                <option value="Seoul"></option>
+                <option value="Tokyo"></option>
+                <option value="Los Angeles"></option>
+                <option value="Bruxelles"></option>
+                <option value="Trevi"></option>
+                <option value="Dubai"></option>
+                <option value="Paris"></option>
+            </datalist>    
+        </form>
+            <button id="submit">Search</button>
+    </header>
+    <main>
+        <h1 id="cityName">Charleroi</h1>
+        <p id="descR"></p>
+        <img id="imgSky">
+        <h2 id="temperature">10°</h2>
+
+        <div id="today">
+            <h2 id="todays">TODAY'S FORECAST</h2>
+            <div class="forecastDay">
+            <div id="matin">
+                <h3 class="hour hour_mat">03:00</h3>
+                <img class="imgToday img_mat">
+                <h3 class="tempToday temp_mat"></h3>
+            </div>
+            <div id="midi">
+                <h3 class="hour hour_mid">12:00</h3>
+                <img class="imgToday img_mid">
+                <h3 class="tempToday temp_mid"></h3>
+            </div>
+            <div id="soir">
+                <h3 class="hour hour_soi">21:00</h3>
+                <img class="imgToday img_soi">
+                <h3 class="tempToday temp_soi"></h3>
+            </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>
