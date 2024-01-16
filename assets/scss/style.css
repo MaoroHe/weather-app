@@ -13,7 +13,7 @@
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   height: -moz-fit-content;
   height: fit-content;
@@ -46,6 +46,7 @@
   width: 85px;
   border-radius: 10px;
   transition: 150ms;
+  margin-left: 5%;
 }
 #submit:hover {
   background-color: #29374c;
@@ -64,6 +65,7 @@ main .cityName {
   font-size: 36px;
   margin-bottom: 0px;
   font-family: "Nunito", sans-serif;
+  text-transform: capitalize;
 }
 main .temperature {
   text-align: center;
@@ -85,7 +87,7 @@ main #today {
 }
 main #today #todays {
   margin-left: 15px;
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: small;
   color: #9399A2;
   font-family: "Nunito", sans-serif;
@@ -147,6 +149,10 @@ main #week {
 }
 main #week #weeks {
   color: #9399A2;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
 }
 main #week .forecastWeek {
   display: flex;
@@ -157,29 +163,48 @@ main #week .forecastWeek {
   height: 80%;
 }
 main #week #un {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 95%;
-  background-color: #9399A2;
-  border-radius: 10px;
+  border-bottom: #35455E 1px solid;
 }
 main #week #deux {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 95%;
-  background-color: #9399A2;
-  border-radius: 10px;
+  border-bottom: #35455E 1px solid;
 }
 main #week #trois {
+  border-bottom: #35455E 1px solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 95%;
-  background-color: #9399A2;
-  border-radius: 10px;
 }
 main #week #quatre {
+  border-bottom: #35455E 1px solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 95%;
-  background-color: #9399A2;
-  border-radius: 10px;
 }
 main #week #cinq {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 95%;
-  background-color: #9399A2;
   border-radius: 10px;
+}
+main #week .tempW {
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0;
+  margin-left: 10px;
+}
+main #week .day {
+  margin-left: 8px;
 }
 
 html {

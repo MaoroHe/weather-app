@@ -5,6 +5,7 @@ export function submit() {
     const input = document.querySelector('#choose');
 
     subBtn.addEventListener('click', (event) => {
+        event.preventDefault();
         if (input.value != '') {
         weather();
         }

@@ -1,12 +1,12 @@
 import { setup } from "../setup/setup.js";
 import * as dateFns from 'https://cdn.jsdelivr.net/npm/date-fns@2.24.0/esm/index.js';
 
-let dayCreator = (wkd, i) => {
-    const day_un = document.querySelector('.day_un');
-    const day_deux = document.querySelector('.day_deux');
-    const day_trois = document.querySelector('.day_trois');
-    const day_quatre = document.querySelector('.day_quatre');
-    const day_cinq = document.querySelector('.day_cinq');
+let dayCreator = (wkd, i, f) => {
+    const day_un = document.querySelector(`.day_un${f}`);
+    const day_deux = document.querySelector(`.day_deux${f}`);
+    const day_trois = document.querySelector(`.day_trois${f}`);
+    const day_quatre = document.querySelector(`.day_quatre${f}`);
+    const day_cinq = document.querySelector(`.day_cinq${f}`);
 
     day_un.textContent = wkd[i];
     day_deux.textContent = wkd[(i+1)%7];
@@ -16,7 +16,7 @@ let dayCreator = (wkd, i) => {
 
 }
 
-let dayCalc = () => {
+let dayCalc = (k) => {
     const weekDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     
     const now = new Date();
@@ -27,7 +27,7 @@ let dayCalc = () => {
     
     const days = weekDay[index]
     console.log(days)
-    dayCreator(weekDay, index)
+    dayCreator(weekDay, index, k)
    
 }
 
@@ -41,9 +41,15 @@ let infoWrite = (info, i) => {
     const img_mid = document.querySelector(`.img_mid${i}`);
     const img_soi = document.querySelector(`.img_soi${i}`);
 
-    const temp_mat = document.querySelector('.temp_mat');
-    const temp_mid = document.querySelector('.temp_mid');
-    const temp_soi = document.querySelector('.temp_soi');
+    const temp_mat = document.querySelector(`.temp_mat${i}`);
+    const temp_mid = document.querySelector(`.temp_mid${i}`);
+    const temp_soi = document.querySelector(`.temp_soi${i}`);
+
+    const temp_un = document.querySelector(`.temp_un${i}`)
+    const temp_deux = document.querySelector(`.temp_deux${i}`)
+    const temp_trois = document.querySelector(`.temp_trois${i}`)
+    const temp_quatre = document.querySelector(`.temp_quatre${i}`)
+    const temp_cinq = document.querySelector(`.temp_cinq${i}`)
 
     let temps = info.list[0].main.temp - 273.15;
     let tempss = Math.floor(temps)
@@ -58,8 +64,8 @@ let infoWrite = (info, i) => {
     let mid_temp = info.list[1].main.temp - 273.15;
     let soi_temp = info.list[2].main.temp - 273.15;
 
-    cityName.textContent = info.city.name;
-    temperature.textContent = tempss + '°';
+    cityName.textContent = i;
+    temperature.textContent = tempss + '°C';
     descR.textContent = descT;
     imgSky.src = `assets/img/${skyState}.png`;
 
@@ -70,6 +76,12 @@ let infoWrite = (info, i) => {
     temp_mat.textContent = Math.floor(mat_temp);
     temp_mid.textContent = Math.floor(mid_temp);
     temp_soi.textContent = Math.floor(soi_temp);
+
+    temp_un.textContent = Math.floor(info.list[8].main.temp - 273.15);
+    temp_deux.textContent = Math.floor(info.list[16].main.temp - 273.15);
+    temp_trois.textContent = Math.floor(info.list[24].main.temp - 273.15);
+    temp_quatre.textContent = Math.floor(info.list[32].main.temp - 273.15);
+    temp_cinq.textContent = Math.floor(info.list[39].main.temp - 273.15);
 }
 
 export async function weather() {
@@ -88,7 +100,7 @@ export async function weather() {
 
         setup(cityVal)
         infoWrite(temp, cityVal)
-        dayCalc()
+        dayCalc(cityVal)
     } catch (error) {
         console.log(error)
     }

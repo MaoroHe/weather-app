@@ -10,7 +10,7 @@
     #form {
         width: fit-content;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         height: fit-content;
     }
@@ -47,6 +47,7 @@
     width: 85px;
     border-radius: 10px;
     transition: 150ms;
+    margin-left: 5%;
 
     &:hover {
         background-color: $hover;

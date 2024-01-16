@@ -13,6 +13,7 @@ main {
         font-size: 36px;
         margin-bottom: 0px;
         font-family: 'Nunito', sans-serif;
+        text-transform: capitalize;
     }
 
     .temperature {
@@ -37,7 +38,7 @@ main {
 
         #todays {
             margin-left: 15px;
-            margin-top: 20px;
+            margin-top: 18px;
             font-size: small;
             color: #9399A2;
             font-family: 'Nunito', sans-serif;
@@ -108,6 +109,10 @@ main {
 
         #weeks {
             color: #9399A2;
+            margin-left: 5%;
+            margin-top: 5%;
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
         }
 
         .forecastWeek {
@@ -120,33 +125,53 @@ main {
         }
 
         #un {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             width: 95%;
-            background-color: #9399A2;
-            border-radius: 10px;
+            border-bottom: #35455E 1px solid;
         }
 
         #deux {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             width: 95%;
-            background-color: #9399A2;
-            border-radius: 10px;
+            border-bottom: #35455E 1px solid;
         }
 
         #trois {
+            border-bottom: #35455E 1px solid;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             width: 95%;
-            background-color: #9399A2;
-            border-radius: 10px;
         }
 
         #quatre {
+            border-bottom: #35455E 1px solid;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             width: 95%;
-            background-color: #9399A2;
-            border-radius: 10px;
         }
 
         #cinq {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             width: 95%;
-            background-color: #9399A2;
             border-radius: 10px;
+        }
+
+        .tempW {
+            height: fit-content;
+            margin: 0;
+            margin-left: 10px;
+        }
+
+        .day {
+            margin-left: 8px;
         }
     }
 }
