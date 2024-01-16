@@ -1,12 +1,45 @@
-let infoWrite = (info) => {
-    const cityName = document.querySelector('#cityName');
-    const temperature = document.querySelector('#temperature')
-    const imgSky = document.querySelector('#imgSky');
-    const descR = document.querySelector('#descR');
+import { setup } from "../setup/setup.js";
+import * as dateFns from 'https://cdn.jsdelivr.net/npm/date-fns@2.24.0/esm/index.js';
 
-    const img_mat = document.querySelector('.img_mat');
-    const img_mid = document.querySelector('.img_mid');
-    const img_soi = document.querySelector('.img_soi');
+let dayCreator = (wkd, i) => {
+    const day_un = document.querySelector('.day_un');
+    const day_deux = document.querySelector('.day_deux');
+    const day_trois = document.querySelector('.day_trois');
+    const day_quatre = document.querySelector('.day_quatre');
+    const day_cinq = document.querySelector('.day_cinq');
+
+    day_un.textContent = wkd[i];
+    day_deux.textContent = wkd[(i+1)%7];
+    day_trois.textContent = wkd[(i+2)%7];
+    day_quatre.textContent = wkd[(i+3)%7];
+    day_cinq.textContent = wkd[(i+4)%7];
+
+}
+
+let dayCalc = () => {
+    const weekDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    
+    const now = new Date();
+    console.log(now)
+    const day = dateFns.getDay(now)
+    const index = day;
+    console.log(index)
+    
+    const days = weekDay[index]
+    console.log(days)
+    dayCreator(weekDay, index)
+   
+}
+
+let infoWrite = (info, i) => {
+    const cityName = document.querySelector(`.cityName${i}`);
+    const temperature = document.querySelector(`.temperature${i}`)
+    const imgSky = document.querySelector(`.imgSky${i}`);
+    const descR = document.querySelector(`.descR${i}`);
+
+    const img_mat = document.querySelector(`.img_mat${i}`);
+    const img_mid = document.querySelector(`.img_mid${i}`);
+    const img_soi = document.querySelector(`.img_soi${i}`);
 
     const temp_mat = document.querySelector('.temp_mat');
     const temp_mid = document.querySelector('.temp_mid');
@@ -52,12 +85,13 @@ export async function weather() {
 
         let responsed = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=0e67099d0ac06e931fd91159a462a238')
         let temp = await responsed.json();
-        infoWrite(temp)
+
+        setup(cityVal)
+        infoWrite(temp, cityVal)
+        dayCalc()
     } catch (error) {
         console.log(error)
     }
 
     city.value = '';
 }
-
-//oui
