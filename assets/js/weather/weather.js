@@ -17,7 +17,7 @@ let infoWrite = (info) => {
     let skyState = info.list[0].weather[0].main;
     let descT = info.list[0].weather[0].description;
 
-    let mat_img = `./assets/img/${info.list[0].weather[0].main}.png`;
+    let mat_img = `assets/img/${info.list[0].weather[0].main}.png`;
     let mid_img = `assets/img/${info.list[1].weather[0].main}.png`;
     let soi_img = `assets/img/${info.list[2].weather[0].main}.png`;
 
@@ -28,7 +28,7 @@ let infoWrite = (info) => {
     cityName.textContent = info.city.name;
     temperature.textContent = tempss + '°';
     descR.textContent = descT;
-    imgSky.src = `/assets/img/${skyState}.png`;
+    imgSky.src = `assets/img/${skyState}.png`;
 
     img_mat.src = mat_img;
     img_mid.src = mid_img;
