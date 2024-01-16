@@ -59,3 +59,5 @@ export async function weather() {
 
     city.value = '';
 }
+
+//oui
