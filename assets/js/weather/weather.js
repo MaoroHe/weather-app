@@ -17,9 +17,9 @@ let infoWrite = (info) => {
     let skyState = info.list[0].weather[0].main;
     let descT = info.list[0].weather[0].description;
 
-    let mat_img = `./assets/img/${info.list[0].weather[0].main}.png`;
-    let mid_img = `./assets/img/${info.list[1].weather[0].main}.png`;
-    let soi_img = `/assets/img/${info.list[2].weather[0].main}.png`;
+    let mat_img = `assets/img/${info.list[0].weather[0].main}.png`;
+    let mid_img = `assets/img/${info.list[1].weather[0].main}.png`;
+    let soi_img = `assets/img/${info.list[2].weather[0].main}.png`;
 
     let mat_temp = info.list[0].main.temp - 273.15;
     let mid_temp = info.list[1].main.temp - 273.15;
