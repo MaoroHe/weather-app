@@ -53,3 +53,21 @@
         background-color: $hover;
     }
 }
+
+#add {
+    border: 0px transparent;
+
+    cursor: pointer;
+
+    color: white;
+    background-color: $secondary;
+    height: 35px;
+    width: 85px;
+    border-radius: 10px;
+    transition: 150ms;
+    margin-left: 2%;
+
+    &:hover {
+        background-color: $hover;
+    }
+}

@@ -52,6 +52,21 @@
   background-color: #29374c;
 }
 
+#add {
+  border: 0px transparent;
+  cursor: pointer;
+  color: white;
+  background-color: #202B3B;
+  height: 35px;
+  width: 85px;
+  border-radius: 10px;
+  transition: 150ms;
+  margin-left: 2%;
+}
+#add:hover {
+  background-color: #29374c;
+}
+
 main {
   margin-top: 5px;
   display: flex;
@@ -141,7 +156,7 @@ main #today .forecastDay .tempToday {
 }
 main #week {
   width: 87%;
-  height: 500px;
+  height: 420px;
   background-color: #202B3B;
   border-radius: 18px;
   margin-bottom: 25px;
@@ -202,9 +217,18 @@ main #week .tempW {
   height: fit-content;
   margin: 0;
   margin-left: 10px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #9399A2;
 }
 main #week .day {
   margin-left: 8px;
+  font-family: "Nunito", sans-serif;
+  color: #9399A2;
+}
+main #week .imgW {
+  width: 20%;
+  margin-left: auto;
 }
 
 html {

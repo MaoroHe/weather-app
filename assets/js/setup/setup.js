@@ -110,50 +110,65 @@ export let setup = (i) => {
     const un = document.createElement('div');
     const day_un = document.createElement('h3');
     const temp_un = document.createElement('p');
+    const img_un = document.createElement('img');
     un.id = 'un';
     day_un.className = `day day_un day_un${i}`;
     temp_un.className = `tempW temp_un temp_un${i}`;
+    img_un.className = `imgW img_un img_un${i}`;
     forecastWeek.appendChild(un);
     un.appendChild(day_un);
     un.appendChild(temp_un);
+    un.appendChild(img_un);
 
     const deux = document.createElement('div');
     const day_deux = document.createElement('h3');
     const temp_deux = document.createElement('p');
+    const img_deux = document.createElement('img');
     deux.id = 'deux';
     day_deux.className = `day day_deux day_deux${i}`;
     temp_deux.className = `tempW temp_deux temp_deux${i}`;
+    img_deux.className = `imgW img_deux img_deux${i}`;
     forecastWeek.appendChild(deux);
     deux.appendChild(day_deux);
     deux.appendChild(temp_deux);
+    deux.appendChild(img_deux);
 
     const trois = document.createElement('div');
     const day_trois = document.createElement('h3');
     const temp_trois = document.createElement('p');
+    const img_trois = document.createElement('img');
     trois.id = 'trois';
     day_trois.className = `day day_trois day_trois${i}`;
     temp_trois.className = `tempW temp_trois temp_trois${i}`;
+    img_trois.className = `imgW img_trois img_trois${i}`;
     forecastWeek.appendChild(trois);
     trois.appendChild(day_trois);
     trois.appendChild(temp_trois);
+    trois.appendChild(img_trois);
     
     const quatre = document.createElement('div');
     const day_quatre = document.createElement('h3');
     const temp_quatre = document.createElement('p');
+    const img_quatre = document.createElement('img');
     quatre.id = 'quatre';
     day_quatre.className = `day day_quatre day_quatre${i}`;
     temp_quatre.className = `tempW temp_quatre temp_quatre${i}`;
+    img_quatre.className = `imgW img_quatre img_quatre${i}`;
     forecastWeek.appendChild(quatre);
     quatre.appendChild(day_quatre);
     quatre.appendChild(temp_quatre);
+    quatre.appendChild(img_quatre);
 
     const cinq = document.createElement('div');
     const day_cinq = document.createElement('h3');
     const temp_cinq = document.createElement('p');
+    const img_cinq = document.createElement('img');
     cinq.id = 'cinq';
     day_cinq.className = `day day_cinq day_cinq${i}`;
     temp_cinq.className = `tempW temp_cinq temp_cinq${i}`;
+    img_cinq.className = `imgW img_cinq img_cinq${i}`;
     forecastWeek.appendChild(cinq);
     cinq.appendChild(day_cinq);
     cinq.appendChild(temp_cinq);
+    cinq.appendChild(img_cinq);
 }

@@ -13,7 +13,6 @@ let dayCreator = (wkd, i, f) => {
     day_trois.textContent = wkd[(i+2)%7];
     day_quatre.textContent = wkd[(i+3)%7];
     day_cinq.textContent = wkd[(i+4)%7];
-
 }
 
 let dayCalc = (k) => {
@@ -28,7 +27,6 @@ let dayCalc = (k) => {
     const days = weekDay[index]
     console.log(days)
     dayCreator(weekDay, index, k)
-   
 }
 
 let infoWrite = (info, i) => {
@@ -45,14 +43,20 @@ let infoWrite = (info, i) => {
     const temp_mid = document.querySelector(`.temp_mid${i}`);
     const temp_soi = document.querySelector(`.temp_soi${i}`);
 
-    const temp_un = document.querySelector(`.temp_un${i}`)
-    const temp_deux = document.querySelector(`.temp_deux${i}`)
-    const temp_trois = document.querySelector(`.temp_trois${i}`)
-    const temp_quatre = document.querySelector(`.temp_quatre${i}`)
-    const temp_cinq = document.querySelector(`.temp_cinq${i}`)
+    const temp_un = document.querySelector(`.temp_un${i}`);
+    const temp_deux = document.querySelector(`.temp_deux${i}`);
+    const temp_trois = document.querySelector(`.temp_trois${i}`);
+    const temp_quatre = document.querySelector(`.temp_quatre${i}`);
+    const temp_cinq = document.querySelector(`.temp_cinq${i}`);
+
+    const img_un = document.querySelector(`.img_un${i}`);
+    const img_deux = document.querySelector(`.img_deux${i}`);
+    const img_trois = document.querySelector(`.img_trois${i}`);
+    const img_quatre = document.querySelector(`.img_quatre${i}`);
+    const img_cinq = document.querySelector(`.img_cinq${i}`);
 
     let temps = info.list[0].main.temp - 273.15;
-    let tempss = Math.floor(temps)
+    let tempss = Math.round(temps)
     let skyState = info.list[0].weather[0].main;
     let descT = info.list[0].weather[0].description;
 
@@ -73,20 +77,55 @@ let infoWrite = (info, i) => {
     img_mid.src = mid_img;
     img_soi.src = soi_img;
 
-    temp_mat.textContent = Math.floor(mat_temp);
-    temp_mid.textContent = Math.floor(mid_temp);
-    temp_soi.textContent = Math.floor(soi_temp);
+    temp_mat.textContent = Math.round(mat_temp);
+    temp_mid.textContent = Math.round(mid_temp);
+    temp_soi.textContent = Math.round(soi_temp);
 
-    temp_un.textContent = Math.floor(info.list[8].main.temp - 273.15);
-    temp_deux.textContent = Math.floor(info.list[16].main.temp - 273.15);
-    temp_trois.textContent = Math.floor(info.list[24].main.temp - 273.15);
-    temp_quatre.textContent = Math.floor(info.list[32].main.temp - 273.15);
-    temp_cinq.textContent = Math.floor(info.list[39].main.temp - 273.15);
+    temp_un.textContent = Math.round(info.list[8].main.temp - 273.15) + "°C";
+    temp_deux.textContent = Math.round(info.list[16].main.temp - 273.15) + "°C";
+    temp_trois.textContent = Math.round(info.list[24].main.temp - 273.15) + "°C";
+    temp_quatre.textContent = Math.round(info.list[32].main.temp - 273.15) + "°C";
+    temp_cinq.textContent = Math.round(info.list[39].main.temp - 273.15) + "°C";
+
+    img_un.src = `assets/img/${info.list[8].weather[0].main}.png`;
+    img_deux.src = `assets/img/${info.list[16].weather[0].main}.png`;
+    img_trois.src = `assets/img/${info.list[24].weather[0].main}.png`;
+    img_quatre.src = `assets/img/${info.list[32].weather[0].main}.png`;
+    img_cinq.src = `assets/img/${info.list[39].weather[0].main}.png`;
 }
 
 export async function weather() {
     const city = document.getElementById('choose');
-    const cityVal = city.value;
+    const ville = localStorage.getItem("ville");
+    const mainss = document.querySelector('main');
+    const cityVal = city.value || ville;
+    mainss.innerHTML= '';
+
+    try {
+        let response = await fetch('https://api.myptv.com/geocoding/v1/locations/by-text?searchText=' + cityVal + '&apiKey=RVVfZmUyNzM3ZmZlOTljNGJhNDg2MmFlNTUzMjYzMGZhNDA6NmI3ZjRmNDgtZmQzZS00ZDAxLWI3ODUtNTlhOTQ4OGRhODM5');
+        let content = await response.json();
+
+        const lat = content.locations[0].referencePosition.latitude;
+        const long = content.locations[0].referencePosition.longitude;
+
+        let responsed = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=0e67099d0ac06e931fd91159a462a238')
+        let temp = await responsed.json();
+
+        setup(cityVal)
+        infoWrite(temp, cityVal)
+        dayCalc(cityVal)
+    } catch (error) {
+        console.log(error)
+    }
+
+    city.value = '';
+    localStorage.setItem("ville", cityVal);
+}
+
+export async function weatherB() {
+    const city = document.getElementById('choose');
+    const ville = localStorage.getItem("ville");
+    const cityVal = city.value || ville;
 
     try {
         let response = await fetch('https://api.myptv.com/geocoding/v1/locations/by-text?searchText=' + cityVal + '&apiKey=RVVfZmUyNzM3ZmZlOTljNGJhNDg2MmFlNTUzMjYzMGZhNDA6NmI3ZjRmNDgtZmQzZS00ZDAxLWI3ODUtNTlhOTQ4OGRhODM5');
