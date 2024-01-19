@@ -261,7 +261,6 @@ main #today .forecastDay #midi .imgToday {
 @media (min-width: 1020px) {
   main #today .forecastDay #midi .imgToday {
     width: 100%;
-    height: 45%;
   }
 }
 main #today .forecastDay #soir {
@@ -291,7 +290,6 @@ main #today .forecastDay .imgToday {
     width: 85%;
     margin-top: auto;
     margin-bottom: auto;
-    height: 45%;
   }
 }
 main #today .forecastDay .tempToday {

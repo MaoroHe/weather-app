@@ -2,7 +2,7 @@ import { setup } from "../setup/setup.js";
 import { chartCreator } from "../chart/chart.js";
 import * as dateFns from 'https://cdn.jsdelivr.net/npm/date-fns@2.24.0/esm/index.js';
 
-let dayCreator = (wkd, i, f) => {
+export let dayCreator = (wkd, i, f) => {
     const day_un = document.querySelector(`.day_un${f}`);
     const day_deux = document.querySelector(`.day_deux${f}`);
     const day_trois = document.querySelector(`.day_trois${f}`);
@@ -81,9 +81,9 @@ let infoWrite = (info, i, images) => {
     img_mid.src = mid_img;
     img_soi.src = soi_img;
 
-    temp_mat.textContent = Math.round(mat_temp);
-    temp_mid.textContent = Math.round(mid_temp);
-    temp_soi.textContent = Math.round(soi_temp);
+    temp_mat.textContent = Math.round(mat_temp) + "°C";
+    temp_mid.textContent = Math.round(mid_temp) + "°C";
+    temp_soi.textContent = Math.round(soi_temp) + "°C";
 
     temp_un.textContent = Math.round(info.list[8].main.temp - 273.15) + "°C";
     temp_deux.textContent = Math.round(info.list[16].main.temp - 273.15) + "°C";

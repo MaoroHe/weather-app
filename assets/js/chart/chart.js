@@ -1,12 +1,18 @@
 import * as chartJs from "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js";
+import { dayCreator } from "../weather/weather.js";
+import * as dateFns from 'https://cdn.jsdelivr.net/npm/date-fns@2.24.0/esm/index.js';
 
 export let chartCreator = (info, i) => {
+    const weekDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const now = new Date();
+    const day = dateFns.getDay(now);
+    const index = day;
     const canvas = document.querySelector(`.canvas${i}`);
 
     let myChart = new Chart(canvas, {
         type: 'bar',
         data: {
-        labels: ['Today', 'Tomorrow', 'After Tomorrow', 'After After Tomorrow', 'After After After Tomorrow', 'After After After After Tomorrow'],
+        labels: [weekDay[day-1], weekDay[day], weekDay[(index+1)%7], weekDay[(index+2)%7], weekDay[(index+3)%7], weekDay[(index+4)%7]],
             datasets: [{
                 label: 'Temperature',
                 data: [Math.round(info.list[0].main.temp - 273.15), Math.round(info.list[8].main.temp - 273.15), Math.round(info.list[16].main.temp - 273.15), Math.round(info.list[24].main.temp - 273.15), Math.round(info.list[32].main.temp - 273.15), Math.round(info.list[39].main.temp - 273.15)],
