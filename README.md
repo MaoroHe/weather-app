@@ -9,6 +9,6 @@
 A simple workout that encompasses everything I've learned so far. A basic **Weather-App**!
 
 ### Screenshot
-![Mobile Version](./assets/img/001)
+![Mobile Version](./assets/img/001Weather App.png)
 
 ### Technologies
