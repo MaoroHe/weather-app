@@ -1,7 +1,7 @@
 # Weather-App
 
 ## Table of Contents
-[Why ?](Why)
+[Why ?](/readme)
 
 ### Why
 ### Screenshot
