@@ -110,7 +110,7 @@ export async function weather() {
 
     if (cityVal != '') {
     try {
-        let response = await fetch("http://api.positionstack.com/v1/forward?access_key=54060a2dccf2112fecfe1472ae54ee3d&query=" + cityVal);
+        let response = await fetch("http://api.positionstack.com/v1/forward?access_key=427e22da00a0ce859ad4a793c3f4e88a&query=" + cityVal);
         let content = await response.json();
 
         const lat = content.data[0].latitude;
