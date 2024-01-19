@@ -1,8 +1,10 @@
 # Weather-App
 
 ## Table of Contents
-[Why ?](/readme)
+**1.** Why ?
+**1.** Screenshot
+**1.** Technologies
 
-### Why
+### Why ?
 ### Screenshot
 ### Technologies
