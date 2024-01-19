@@ -1,4 +1,5 @@
 import { setup } from "../setup/setup.js";
+import { chartCreator } from "../chart/chart.js";
 import * as dateFns from 'https://cdn.jsdelivr.net/npm/date-fns@2.24.0/esm/index.js';
 
 let dayCreator = (wkd, i, f) => {
@@ -29,7 +30,7 @@ let dayCalc = (k) => {
     dayCreator(weekDay, index, k)
 }
 
-let infoWrite = (info, i) => {
+let infoWrite = (info, i, images) => {
     const cityName = document.querySelector(`.cityName${i}`);
     const temperature = document.querySelector(`.temperature${i}`)
     const imgSky = document.querySelector(`.imgSky${i}`);
@@ -55,8 +56,11 @@ let infoWrite = (info, i) => {
     const img_quatre = document.querySelector(`.img_quatre${i}`);
     const img_cinq = document.querySelector(`.img_cinq${i}`);
 
+    const cityImg = document.querySelector(`.cityImg${i}`);
+    const titleCity = document.querySelector(`.titleCity${i}`);
+
     let temps = info.list[0].main.temp - 273.15;
-    let tempss = Math.round(temps)
+    let tempss = Math.round(temps);
     let skyState = info.list[0].weather[0].main;
     let descT = info.list[0].weather[0].description;
 
@@ -92,57 +96,72 @@ let infoWrite = (info, i) => {
     img_trois.src = `assets/img/${info.list[24].weather[0].main}.png`;
     img_quatre.src = `assets/img/${info.list[32].weather[0].main}.png`;
     img_cinq.src = `assets/img/${info.list[39].weather[0].main}.png`;
+
+    cityImg.src = images.results[0].urls.regular;
+    titleCity.textContent = i;
 }
 
 export async function weather() {
     const city = document.getElementById('choose');
     const ville = localStorage.getItem("ville");
     const mainss = document.querySelector('main');
-    const cityVal = city.value || ville;
+    const cityVal = city.value || ville || 'charleroi';
     mainss.innerHTML= '';
 
+    if (cityVal != '') {
     try {
-        let response = await fetch('https://api.myptv.com/geocoding/v1/locations/by-text?searchText=' + cityVal + '&apiKey=RVVfZmUyNzM3ZmZlOTljNGJhNDg2MmFlNTUzMjYzMGZhNDA6NmI3ZjRmNDgtZmQzZS00ZDAxLWI3ODUtNTlhOTQ4OGRhODM5');
+        let response = await fetch("http://api.positionstack.com/v1/forward?access_key=54060a2dccf2112fecfe1472ae54ee3d&query=" + cityVal);
         let content = await response.json();
 
-        const lat = content.locations[0].referencePosition.latitude;
-        const long = content.locations[0].referencePosition.longitude;
+        const lat = content.data[0].latitude;
+        const long = content.data[0].longitude;
 
-        let responsed = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=0e67099d0ac06e931fd91159a462a238')
+        let responsed = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=eb9158767d821cfee8d7eca824f38e1f')
         let temp = await responsed.json();
 
+        let searched = await fetch('https://api.unsplash.com/search/photos?client_id=p1qn3My8katmILWqNG9L5_s5a25uQT3IGfJJexTgxfw&query=' + cityVal);
+        let contented = await searched.json();
+
         setup(cityVal)
-        infoWrite(temp, cityVal)
+        infoWrite(temp, cityVal, contented)
         dayCalc(cityVal)
+        chartCreator(temp, cityVal)
     } catch (error) {
         console.log(error)
     }
+}
 
-    city.value = '';
     localStorage.setItem("ville", cityVal);
+    city.value = '';
 }
 
 export async function weatherB() {
     const city = document.getElementById('choose');
     const ville = localStorage.getItem("ville");
-    const cityVal = city.value || ville;
+    const cityVal = city.value;
 
+    if (cityVal != '') {
     try {
-        let response = await fetch('https://api.myptv.com/geocoding/v1/locations/by-text?searchText=' + cityVal + '&apiKey=RVVfZmUyNzM3ZmZlOTljNGJhNDg2MmFlNTUzMjYzMGZhNDA6NmI3ZjRmNDgtZmQzZS00ZDAxLWI3ODUtNTlhOTQ4OGRhODM5');
+        let response = await fetch('https://api.myptv.com/geocoding/v1/locations/by-text?searchText=' + cityVal + '&apiKey=RVVfNzQ1ZTAyOGRiMDk2NDJhODg3ZWY3NTc1NThiMWIyZTk6MmNiYmEwMzYtNTczYy00Mzc3LThiMmYtMTFjODljNDcxY2Ji');
         let content = await response.json();
 
         const lat = content.locations[0].referencePosition.latitude;
         const long = content.locations[0].referencePosition.longitude;
 
-        let responsed = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=0e67099d0ac06e931fd91159a462a238')
+        let responsed = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=eb9158767d821cfee8d7eca824f38e1f')
         let temp = await responsed.json();
 
+        let searched = await fetch('https://api.unsplash.com/search/photos?client_id=p1qn3My8katmILWqNG9L5_s5a25uQT3IGfJJexTgxfw&query=' + cityVal);
+        let contented = await searched.json();
+
         setup(cityVal)
-        infoWrite(temp, cityVal)
+        infoWrite(temp, cityVal, contented)
         dayCalc(cityVal)
+        chartCreator(temp, cityVal)
     } catch (error) {
         console.log(error)
     }
+}
 
     city.value = '';
 }

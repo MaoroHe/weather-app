@@ -1,5 +1,7 @@
 export let setup = (i) => {
     const mains = document.getElementById('main');
+    const normalDiv = document.createElement('div');
+    normalDiv.className = 'normalDiv';
 
     const cityName = document.createElement('h1');
     cityName.className = `cityName${i} cityName`;
@@ -17,10 +19,15 @@ export let setup = (i) => {
     temperature.className = `temperature${i} temperature`;
     mains.appendChild(temperature);
 
+    const bigDiv = document.createElement('div');
+    bigDiv.className = 'bigDiv'
+    mains.appendChild(bigDiv);
+
     const parentDiv = document.createElement('div');
     parentDiv.id = 'today';
     
-    mains.appendChild(parentDiv)
+    bigDiv.appendChild(normalDiv)
+    normalDiv.appendChild(parentDiv)
 
     //parent div
 
@@ -96,7 +103,7 @@ export let setup = (i) => {
 
     const week = document.createElement('div');
     week.id = 'week';
-    mains.appendChild(week);
+    bigDiv.appendChild(week);
 
     const weeks = document.createElement('h2');
     weeks.id = 'weeks';
@@ -171,4 +178,21 @@ export let setup = (i) => {
     cinq.appendChild(day_cinq);
     cinq.appendChild(temp_cinq);
     cinq.appendChild(img_cinq);
+
+    const divImgW = document.createElement('div');
+    const cityImg = document.createElement('img');
+    const titleCity = document.createElement('h2');
+    divImgW.className = `divImgW divImgW${i}`;
+    cityImg.className = `cityImg cityImg${i}`;
+    titleCity.className = `titleCity titleCity${i}`;
+    normalDiv.appendChild(divImgW);
+    divImgW.appendChild(titleCity);
+    divImgW.appendChild(cityImg);
+
+    const divChart = document.createElement('div');
+    const canvas = document.createElement('canvas');
+    divChart.className = `divChart divChart${i}`;
+    canvas.className = `canvas canvas${i}`;
+    mains.appendChild(divChart);
+    divChart.appendChild(canvas);
 }

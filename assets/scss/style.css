@@ -14,9 +14,15 @@
   width: fit-content;
   display: flex;
   flex-direction: row;
-  align-items: center;
   height: -moz-fit-content;
   height: fit-content;
+  width: 80%;
+  justify-content: space-around;
+}
+@media (min-width: 500px) {
+  #home #form {
+    width: 50%;
+  }
 }
 #home #choose {
   border: 0px transparent;
@@ -36,6 +42,12 @@
 #home #choose:focus {
   color: white;
 }
+@media (min-width: 500px) {
+  #home #choose {
+    width: 40%;
+    order: 0;
+  }
+}
 
 #submit {
   border: 0px transparent;
@@ -51,6 +63,13 @@
 #submit:hover {
   background-color: #29374c;
 }
+@media (min-width: 500px) {
+  #submit {
+    width: 20%;
+    margin-left: 1%;
+    order: -1;
+  }
+}
 
 #add {
   border: 0px transparent;
@@ -65,6 +84,12 @@
 }
 #add:hover {
   background-color: #29374c;
+}
+@media (min-width: 500px) {
+  #add {
+    width: 20%;
+    margin-left: 1%;
+  }
 }
 
 main {
@@ -82,6 +107,16 @@ main .cityName {
   font-family: "Nunito", sans-serif;
   text-transform: capitalize;
 }
+@media (min-width: 500px) {
+  main .cityName {
+    font-size: 55px;
+  }
+}
+@media (min-width: 1020px) {
+  main .cityName {
+    font-size: 65px;
+  }
+}
 main .temperature {
   text-align: center;
   margin-top: 0px;
@@ -89,16 +124,84 @@ main .temperature {
   font-size: 30px;
   font-family: "Nunito", sans-serif;
 }
+@media (min-width: 500px) {
+  main .temperature {
+    font-size: 34px;
+  }
+}
+@media (min-width: 1020px) {
+  main .temperature {
+    font-size: 36px;
+  }
+}
+@media (min-width: 500px) {
+  main .imgSky {
+    width: 20%;
+    min-width: 224px;
+  }
+}
 main .descR {
   margin-top: 0;
   color: #9399A2;
   font-family: "Nunito", sans-serif;
 }
+@media (min-width: 500px) {
+  main .descR {
+    font-size: 32px;
+  }
+}
+main .bigDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+@media (min-width: 500px) {
+  main .bigDiv {
+    margin-top: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 500px;
+    margin-bottom: 15px;
+  }
+}
+@media (min-width: 1020px) {
+  main .bigDiv {
+    height: 900px;
+  }
+}
+main .normalDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 500px) {
+  main .normalDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 45%;
+    height: 100%;
+  }
+}
 main #today {
   width: 87%;
-  height: 200px;
+  height: 210px;
   background-color: #202B3B;
   border-radius: 18px;
+  margin-bottom: 25px;
+}
+@media (min-width: 500px) {
+  main #today {
+    width: 100%;
+    height: 47%;
+    margin-right: auto;
+  }
 }
 main #today #todays {
   margin-left: 15px;
@@ -107,12 +210,24 @@ main #today #todays {
   color: #9399A2;
   font-family: "Nunito", sans-serif;
 }
+@media (min-width: 1020px) {
+  main #today #todays {
+    font-size: medium;
+    margin-left: 25px;
+    margin-top: 28px;
+  }
+}
 main #today .forecastDay {
   display: flex;
   height: 200px;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 20px;
+}
+@media (min-width: 1020px) {
+  main #today .forecastDay {
+    height: 100%;
+  }
 }
 main #today .forecastDay #matin {
   display: flex;
@@ -122,6 +237,11 @@ main #today .forecastDay #matin {
   width: 30%;
   border-right: #9399A2 1px solid;
 }
+@media (min-width: 1020px) {
+  main #today .forecastDay #matin {
+    height: 75%;
+  }
+}
 main #today .forecastDay #midi {
   display: flex;
   flex-direction: column;
@@ -129,9 +249,20 @@ main #today .forecastDay #midi {
   height: 120px;
   width: 25%;
 }
+@media (min-width: 1020px) {
+  main #today .forecastDay #midi {
+    height: 75%;
+  }
+}
 main #today .forecastDay #midi .imgToday {
   width: 92%;
   height: auto;
+}
+@media (min-width: 1020px) {
+  main #today .forecastDay #midi .imgToday {
+    width: 100%;
+    height: 45%;
+  }
 }
 main #today .forecastDay #soir {
   display: flex;
@@ -140,6 +271,11 @@ main #today .forecastDay #soir {
   height: 120px;
   width: 30%;
   border-left: #9399A2 1px solid;
+}
+@media (min-width: 1020px) {
+  main #today .forecastDay #soir {
+    height: 75%;
+  }
 }
 main #today .forecastDay .hour {
   margin: 0;
@@ -150,17 +286,42 @@ main #today .forecastDay .imgToday {
   width: 75%;
   height: auto;
 }
+@media (min-width: 1020px) {
+  main #today .forecastDay .imgToday {
+    width: 85%;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 45%;
+  }
+}
 main #today .forecastDay .tempToday {
   margin: 0;
   color: #9399A2;
 }
+@media (min-width: 1020px) {
+  main #today .forecastDay .tempToday {
+    font-size: 28px;
+    margin-top: auto;
+  }
+}
 main #week {
   width: 87%;
-  height: 420px;
+  height: 460px;
   background-color: #202B3B;
   border-radius: 18px;
-  margin-bottom: 25px;
   margin-top: 25px;
+}
+@media (min-width: 500px) {
+  main #week {
+    width: 45%;
+    height: 500px;
+    margin-top: auto;
+  }
+}
+@media (min-width: 1020px) {
+  main #week {
+    height: 100%;
+  }
 }
 main #week #weeks {
   color: #9399A2;
@@ -229,6 +390,47 @@ main #week .day {
 main #week .imgW {
   width: 20%;
   margin-left: auto;
+}
+main .divImgW {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 87%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #202B3B;
+  border-radius: 18px;
+}
+@media (min-width: 500px) {
+  main .divImgW {
+    width: 100%;
+    padding: 0;
+    height: 47%;
+    margin-right: auto;
+  }
+}
+main .cityImg {
+  width: 85%;
+  height: 70%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 10px;
+}
+main .titleCity {
+  text-transform: capitalize;
+  color: #9399A2;
+  margin: 0;
+  margin-bottom: 5px;
+  font-family: "Nunito", sans-serif;
+}
+@media (min-width: 1020px) {
+  main .titleCity {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
 }
 
 html {

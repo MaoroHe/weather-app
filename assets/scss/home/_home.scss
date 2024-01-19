@@ -11,8 +11,13 @@
         width: fit-content;
         display: flex;
         flex-direction: row;
-        align-items: center;
         height: fit-content;
+        width: 80%;
+        justify-content: space-around;
+
+        @include for-tablet {
+            width: 50%;
+        }
     }
 
     #choose {
@@ -33,6 +38,11 @@
         &:focus {
             color: white;
         }
+
+        @include for-tablet {
+            width: 40%;
+            order: 0;
+        }
     }
 }
 
@@ -52,6 +62,12 @@
     &:hover {
         background-color: $hover;
     }
+
+    @include for-tablet {
+        width: 20%;
+        margin-left: 1%;
+        order: -1;
+    }
 }
 
 #add {
@@ -69,5 +85,10 @@
 
     &:hover {
         background-color: $hover;
+    }
+
+    @include for-tablet {
+        width: 20%;
+        margin-left: 1%;
     }
 }
