@@ -110,11 +110,11 @@ export async function weather() {
 
     if (cityVal != '') {
     try {
-        let response = await fetch("http://api.positionstack.com/v1/forward?access_key=427e22da00a0ce859ad4a793c3f4e88a&query=" + cityVal);
+        let response = await fetch("https://us1.locationiq.com/v1/search?key=pk.d12d07f0d36545fc2051ed5f2e34c1cd&q=" + cityVal + "%20&format=json");
         let content = await response.json();
 
-        const lat = content.data[0].latitude;
-        const long = content.data[0].longitude;
+        const lat = content[0].lat;
+        const long = content[0].lon;
 
         let responsed = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=eb9158767d821cfee8d7eca824f38e1f')
         let temp = await responsed.json();
