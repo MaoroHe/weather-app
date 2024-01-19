@@ -432,6 +432,21 @@ main .titleCity {
     margin-bottom: 25px;
   }
 }
+main .divChart {
+  margin-top: 25px;
+  width: 81%;
+  height: 200px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #202B3B;
+  border-radius: 18px;
+}
+@media (min-width: 500px) {
+  main .divChart {
+    width: 60%;
+    height: 570px;
+  }
+}
 
 html {
   background-color: #0B131E;

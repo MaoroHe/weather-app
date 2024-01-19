@@ -8,8 +8,8 @@ export let chartCreator = (info, i) => {
         data: {
         labels: ['Today', 'Tomorrow', 'After Tomorrow', 'After After Tomorrow', 'After After After Tomorrow', 'After After After After Tomorrow'],
             datasets: [{
-                label: 'Days',
-                data: [Math.round(info.list[0].main.temp - 273.15), 19, 3, 5, 2, 3],
+                label: 'Temperature',
+                data: [Math.round(info.list[0].main.temp - 273.15), Math.round(info.list[8].main.temp - 273.15), Math.round(info.list[16].main.temp - 273.15), Math.round(info.list[24].main.temp - 273.15), Math.round(info.list[32].main.temp - 273.15), Math.round(info.list[39].main.temp - 273.15)],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
